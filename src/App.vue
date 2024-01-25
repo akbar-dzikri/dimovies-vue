@@ -1,20 +1,26 @@
 <script setup lang="ts">
-import {RouterView} from 'vue-router'
+import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+
 </script>
 
 <template>
   <header>
-    <Navbar/>
+    <Navbar />
   </header>
   <main>
-    <RouterView/>
+    <RouterView />
   </main>
 </template>
 
 <style scoped>
+@import '@/assets/css/main.css';
 header {
   line-height: 1.5;
-  background : var(--background);
+  background: var(--background);
+}
+
+main{
+  padding: 1rem 2rem;
 }
 </style>
