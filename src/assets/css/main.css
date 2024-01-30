@@ -1,17 +1,20 @@
 :root[data-theme="light"] {
   --text: #0b1914;
   --background: #f8fcfb;
-  --primary: #54b68e;
-  --secondary: #a3a5d7;
-  --accent: #a67ec8;
+  --primary: #4cbd95;
+  --secondary: #98cdbb;
+  --accent: #00e092;
+  --border : rgba(0, 0, 0, 0.1);
 }
 :root[data-theme="dark"] {
   --text: #e6f4ef;
   --background: #030706;
-  --primary: #49ab84;
-  --secondary: #282a5c;
-  --accent: #5e3781;
+  --primary: #42b38b;
+  --secondary: #326755;
+  --accent: #1fffb0;
+  --border: rgba(255, 255, 255, 0.1);
 }
+
 
 *{
   margin: 0;
@@ -30,13 +33,10 @@ a,:active,:visited{
   color: var(--text);
 }
 
-#app{
-  max-width: 1280px;
-}
 
 .btn{
   background: var(--primary);
   color: var(--text);
-  padding: 10px 20px;
+  padding: .5rem 1rem;
   border-radius: 5px;
 }

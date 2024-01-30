@@ -16,7 +16,7 @@ import Navbar from './components/Navbar.vue'
 <style scoped>
 @import '@/assets/css/main.css';
 header {
-  line-height: 1.5;
+  /* line-height: 1.5; */
   background: var(--background);
 }
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, watch } from 'vue';
+import { onMounted, watchEffect } from 'vue';
 
 const getTheme = (): string => {
     const storedTheme = localStorage.getItem("theme");
@@ -29,7 +29,7 @@ onMounted(() => {
     changeTheme();
 });
 
-watch(() => theme, () => {
+watchEffect(() => {
     changeTheme();
 });
 </script>
@@ -53,8 +53,8 @@ watch(() => theme, () => {
     </div>
 </template>
 
-<style>
-input{
+<style scoped>
+input {
     display: none;
 }
 
@@ -62,8 +62,8 @@ input{
     display: flex;
     align-items: center;
     gap: .5rem;
-    --icon-size: 24px; /* Adjust the size as needed */
-    --icon-margin: 8px; /* Adjust the margin as needed */
+    --icon-size: 24px;
+    --icon-margin: 8px;
 }
 
 .icon {
@@ -73,7 +73,7 @@ input{
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 40px; /* Adjust the width for responsiveness */
+    width: 40px;
     height: 24px;
 }
 
@@ -84,45 +84,45 @@ input{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--text);
-    border-radius: 12px; /* Adjust the border-radius for a rounded appearance */
+    background-color: var(--secondary);
+    border-radius: 12px;
     transition: .4s;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 20px; /* Adjust the height for responsiveness */
-    width: 20px; /* Adjust the width for responsiveness */
-    left: 2px; /* Adjust the position for responsiveness */
-    bottom: 2px; /* Adjust the position for responsiveness */
-    background-color: var(--background);
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #e6f4ef;
     border-radius: 50%;
     transition: .4s;
 }
 
-input:checked + .slider {
-    background-color: var(--text);
+input:checked+.slider {
+    background-color: var(--secondary);
 }
 
-input:checked + .slider:before {
-    transform: translateX(16px); /* Adjust the translation for responsiveness */
+input:checked+.slider:before {
+    transform: translateX(16px);
 }
 
 @media (max-width: 480px) {
     .toggle-switch {
-        width: 30px; /* Adjust the width for smaller screens */
+        width: 30px;
     }
 
     .slider:before {
-        height: 16px; /* Adjust the height for smaller screens */
-        width: 16px; /* Adjust the width for smaller screens */
-        left: 2px; /* Adjust the position for smaller screens */
-        bottom: 2px; /* Adjust the position for smaller screens */
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
     }
 
-    input:checked + .slider:before {
-        transform: translateX(12px); /* Adjust the translation for smaller screens */
+    input:checked+.slider:before {
+        transform: translateX(12px);
     }
 }
 </style>
