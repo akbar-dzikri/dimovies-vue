@@ -15,15 +15,14 @@ const apiKey = import.meta.env.VITE_API_READ_TOKEN;
 
 const options: AxiosRequestConfig = {
   method: "GET",
-  url: 'https://api.themoviedb.org/3/movie/popular',
+  url: "https://api.themoviedb.org/3/movie/popular",
   headers: {
     accept: "application/json",
     Authorization: "Bearer " + apiKey,
   },
 };
-
-onMounted(() => {
-  axios
+const getMovies = async () => {
+  await axios
     .request(options)
     .then((response) => {
       movies.value = response.data.results;
@@ -32,6 +31,9 @@ onMounted(() => {
     .catch((error) => {
       console.error(error);
     });
+};
+onMounted(() => {
+  getMovies();
 });
 </script>
 
