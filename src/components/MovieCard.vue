@@ -36,9 +36,17 @@ defineProps<{ data: Movie }>();
   transition: all 0.3s ease-in-out;
 
   .movie-body {
+    padding: 0.5rem 1rem;
     display: none;
     position: absolute;
     transition: all 0.3s ease-in-out;
+
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 
   &:hover,
@@ -49,6 +57,7 @@ defineProps<{ data: Movie }>();
 
     .movie-body {
       display: block;
+      bottom: 0;
     }
     img {
       filter: brightness(0.5);
@@ -65,15 +74,13 @@ defineProps<{ data: Movie }>();
       transition: all 0.1s ease-in-out;
     }
   }
-
-  .movie-body {
-    padding: 0.5rem 1rem;
-
-    p {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+  @media (width < 767px) {
+    .movie-body {
+      display: block;
+      bottom: 0;
+    }
+    img {
+      filter: brightness(0.5);
     }
   }
 }

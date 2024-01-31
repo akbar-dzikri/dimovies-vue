@@ -18,6 +18,10 @@ import Navbar from './components/Navbar.vue'
 header {
   /* line-height: 1.5; */
   background: var(--background);
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  position: sticky;
 }
 
 main{
